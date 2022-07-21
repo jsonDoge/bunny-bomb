@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny</title>
+</head>
+<body>
+  <div class="flex flex-col z-1000">
+    <main class="flex flex-col items-center justify-bottom text-center">
+      <div class="px-20 mt-20">
+        <div id="intro" class="text-center mt-40 hidden">
+          <label for="avatar" class="text-white">
+            <h1 class="text-4xl">Select runner</h1>
+          </label>
+          <select class="mt-5" id="runnerSelect">
+            <option value="bunny">bunny</option>
+            <option value="bear">bear</option>
+          </select>
+          <div>
+            <button id="startGame" class="button mt-3">
+              start
+            </button>
+          </div>
+        </div>
+        <div id="waitingRoom" class="text-center text-white mt-40 hidden">
+          <div id="waitingMessage" class="text-4xl"></div>
+          <div class="flex flex-col items-center mt-10">
+            <svg class="animate-spin text-center h-5 w-5" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path
+                class="opacity-100"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div id="errorRoom" class="text-center text-red-800 mt-40 hidden">
+          <div id="errorMessage" class="text-4xl"></div>
+          <button id="errorConfirm" class="button mt-3">Okay</button>
+        </div>
+      
+        <div id="score" class="text-[#dc5f45] font-['Voltaire'] text-xl uppercase text-center hidden">
+            <div class="label">Bear vs Bunny</div>
+            <div id="value">0</div>
+        </div>
+
+        
+        <div id="gameOver" class="text-center text-blue-800 mt-40 hidden">
+          <div class="text-4xl">Game Over</div>
+          <div class="text-2xl" id="winnerMessage"></div>
+          <button id="restartGame" class="button mt-3">
+            restart?
+          </button>
+        </div>
+
+        <div id="waitingForOpponent" class="text-center text-white mt-40 hidden">
+          <div class="text-2xl">waiting for opponent...</div>
+          <div class="flex flex-col items-center mt-5">
+            <svg class="animate-spin text-center h-5 w-5" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path
+                class="opacity-100"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="backdrop" class="absolute -z-10 bg-gray-500 h-screen w-screen opacity-50 top-0 hidden">
+  </div>
+  <div class="absolute -z-20 h-screen w-screen top-0 bg-[#dbe6e6]">
+    <div id="world" />
+  </div>
+</body>
+</html>
