@@ -1,0 +1,26 @@
+{
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "settings":{},
+  "rules": {
+    "no-console": "off",
+    "linebreak-style": ["error", "unix"],
+    "implicit-arrow-linebreak": "off",
+    "no-use-before-define": "off",
+    "no-continue": "off",
+    "global-require": "off",
+    "space-before-function-paren": ["error", "always"],
+    "no-mixed-operators": "off"
+  }
+}

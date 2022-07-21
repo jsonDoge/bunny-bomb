@@ -1,0 +1,48 @@
+{
+  "name": "bunny-bomb-frontend",
+  "repository": "bunny",
+  "description": "Bunny game frontend",
+  "version": "0.0.1",
+  "author": "jsonDoge",
+  "scripts": {
+    "build": "webpack --config ./bundler/webpack.prod.js",
+    "dev": "webpack serve --config ./bundler/webpack.dev.js",
+    "dev:animation": "ANIMATE_ONLY=true webpack serve --config ./bundler/webpack.dev.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^6.5.1",
+    "dotenv-webpack": "^8.0.0",
+    "file-loader": "^6.2.0",
+    "gsap": "^3.9.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lodash": "^4.17.21",
+    "portfinder-sync": "0.0.2",
+    "postcss": "^8.4.6",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.3.1",
+    "raw-loader": "^4.0.2",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "socket.io-client": "^4.4.1",
+    "store": "^2.0.12",
+    "style-loader": "^2.0.0",
+    "tailwindcss": "^3.0.19",
+    "three": "^0.138",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^4.7.3",
+    "webpack-merge": "^5.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}

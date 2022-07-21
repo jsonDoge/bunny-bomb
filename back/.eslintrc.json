@@ -1,0 +1,72 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "ecmaVersion": 9,
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "quotes": [
+      2,
+      "single"
+    ],
+    "global-strict": 0,
+    "strict": [
+      2,
+      "global"
+    ],
+    "no-shadow": 0,
+    "dot-notation": 0,
+    "no-alert": 1,
+    "no-native-reassign": 1,
+    "no-console": "off",
+    "consistent-return": "off",
+    "prefer-arrow-callback": "off",
+    "func-names":"off",
+    "no-underscore-dangle": [
+      2,
+      {
+        "allow": [
+          "_id"
+        ]
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "require-atomic-updates": "off",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "semi-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "semi-style": [
+      "error",
+      "last"
+    ],
+    "no-extra-semi": "error",
+    "no-continue": "off"
+  }
+}
