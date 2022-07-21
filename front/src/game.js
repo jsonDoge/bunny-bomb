@@ -1,5 +1,9 @@
 const THREE = require('three');
-const { gsap, MotionPathPlugin, SlowMo } = require('gsap/all');
+const {
+  gsap,
+  MotionPathPlugin,
+  SlowMo,
+} = require('gsap/all');
 const { cloneDeep } = require('lodash');
 
 gsap.registerPlugin(MotionPathPlugin, SlowMo);

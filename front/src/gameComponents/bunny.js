@@ -1,7 +1,11 @@
 const THREE = require('three');
 const { gsap } = require('gsap');
 const {
-  brownMat, whiteMat, pinkMat, lightBrownMat, blackMat,
+  brownMat,
+  whiteMat,
+  pinkMat,
+  lightBrownMat,
+  blackMat,
 } = require('./materials');
 const { getVertices } = require('../gameHelpers/utils');
 
