@@ -4,8 +4,8 @@ Original frontend game from [Yakudoo](https://codepen.io/Yakudoo/) codepen [The 
 
 Each player gets a turn to choose where to move their own character avatar in a 2x2 plot array and which opposing character plot to bomb.
 
-Green plot -> where to move your avatar.
-Red plot -> which plot to bomb.
+- Green plot - where to move your avatar.
+- Red plot - which plot to bomb.
 
 ![image](https://user-images.githubusercontent.com/16711523/180389330-d93f9041-c529-46fb-a8ed-9baa13eb6f0a.png)
 
