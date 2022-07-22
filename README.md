@@ -32,3 +32,7 @@ To run locally you'll need to start them separately by running
 and then
 
 ```yarn dev```
+
+## Notes
+
+There are a bunch of "bear" mentions in the code, this is an old feature which never took fruition. Will be replaced to "wolf".
