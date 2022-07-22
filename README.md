@@ -3,6 +3,7 @@
 Original frontend game from [Yakudoo](https://codepen.io/Yakudoo/) codepen [The frantic run of the valorous rabbit](https://codepen.io/Yakudoo/pen/YGxYej). Updated frontend game dependencies to latest or closest alternative. Changed game mode from single to multiplayer by using a socket connection and changed game narrative to a turn-based bomb throwing.
 
 Each player gets a turn to choose where to move their own character avatar in a 2x2 plot array and which opposing character plot to bomb.
+![image](https://user-images.githubusercontent.com/16711523/180389330-d93f9041-c529-46fb-a8ed-9baa13eb6f0a.png)
 
 ## Front
 
