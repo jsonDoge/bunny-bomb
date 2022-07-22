@@ -12,6 +12,7 @@ Three.js game of bear chasing bunny. Javascript with webpack packing, main libs 
 
 Backend to provide multiple player capabilities for chasing game. Currently a very simple solution allowing only a single game to run at any one time. Main libs:
  - [fastify](https://www.fastify.io/)
+ - [socket.io](https://socket.io/)
 
 ## Run
 
