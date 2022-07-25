@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-module.exports = {
+module.exports = (env) => ({
   entry: path.resolve(__dirname, '../src/script.js'),
   output: {
     filename: 'bundle.[contenthash].js',
@@ -10,7 +10,9 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new Dotenv(),
+    new Dotenv({
+      path: `./.env.${env.config}`,
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/index.html'),
       favicon: './src/static/favicon-32x32.png',
@@ -75,4 +77,4 @@ module.exports = {
       },
     ],
   },
-};
+});

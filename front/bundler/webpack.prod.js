@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const commonConfiguration = require('./webpack.common');
 
 module.exports = merge(
-  commonConfiguration,
+  commonConfiguration({ config: 'production' }),
   {
     mode: 'production',
     plugins:
