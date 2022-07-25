@@ -2,10 +2,10 @@
 import { FastifyInstance } from 'fastify';
 import { Socket } from 'socket.io';
 
-type Runner = 'bear' | 'bunny';
+type Runner = 'wolf' | 'bunny';
 
 interface RunnerSockets {
-  bear: Socket | undefined;
+  wolf: Socket | undefined;
   bunny: Socket | undefined;
 }
 
@@ -15,18 +15,18 @@ interface RunnerActions {
 }
 
 interface AllRunnerActions {
-  bear?: RunnerActions;
+  wolf?: RunnerActions;
   bunny?: RunnerActions;
 }
 
 let runnerSockets: RunnerSockets = {
-  bear: undefined,
+  wolf: undefined,
   bunny: undefined,
 };
 
 let playerCount = 0;
 let step = 1;
-let score = 0; // 3 - bunny wins, -3 - bear wins
+let score = 0; // 3 - bunny wins, -3 - wolf wins
 let allRunnerActions: AllRunnerActions = {};
 let runnersJoined: string[] = [];
 let runnersRestarted: string[] = [];
@@ -45,13 +45,13 @@ let runnersRestarted: string[] = [];
 // 3 - game over (emit actions, result and winner) "game over"
 
 // PLAYER SOCKET
-// runner: 'bunny'|'bear'
+// runner: 'bunny'|'wolf'
 // position: 0|1|2|3
 //
 
 const toAllRunners = (topic: string, data = {}) => {
   runnerSockets?.bunny?.emit(topic, data);
-  runnerSockets?.bear?.emit(topic, data);
+  runnerSockets?.wolf?.emit(topic, data);
 };
 
 export default async function socketController(fastify: FastifyInstance) {
@@ -121,18 +121,18 @@ export default async function socketController(fastify: FastifyInstance) {
         return;
       }
 
-      if (allRunnerActions?.bunny?.throwTo === allRunnerActions?.bear?.moveTo) {
+      if (allRunnerActions?.bunny?.throwTo === allRunnerActions?.wolf?.moveTo) {
         score += 1;
       }
 
-      if (allRunnerActions?.bear?.throwTo === allRunnerActions?.bunny?.moveTo) {
+      if (allRunnerActions?.wolf?.throwTo === allRunnerActions?.bunny?.moveTo) {
         score -= 1;
       }
 
       if (score >= 3 || score <= -3) {
         toAllRunners('game over', {
           allRunnerActions,
-          winner: score > 0 ? 'bunny' : 'bear',
+          winner: score > 0 ? 'bunny' : 'wolf',
           score,
         });
         step = 3;
@@ -186,7 +186,7 @@ export default async function socketController(fastify: FastifyInstance) {
           playerCount,
         });
         runnerSockets = {
-          bear: undefined,
+          wolf: undefined,
           bunny: undefined,
         };
       }

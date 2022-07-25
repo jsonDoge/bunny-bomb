@@ -14,7 +14,7 @@ const { createMouseDownHandler } = require('./gameHelpers/clickHandler');
 // components
 const { createBunny } = require('./gameComponents/bunny');
 const { createBomb } = require('./gameComponents/bomb');
-const { createBear } = require('./gameComponents/bear');
+const { createWolf } = require('./gameComponents/wolf');
 const { createGrid } = require('./gameComponents/grid');
 const {
   floorShadow: floorShadowMaterial,
@@ -45,8 +45,8 @@ const speed = {
   current: initSpeed,
 };
 
-const initialBearPos = { x: -189, y: 15, z: 0 };
-const initialBearGridPos = { x: -180, y: 0, z: 0 };
+const initialWolfPos = { x: -189, y: 15, z: 0 };
+const initialWolfGridPos = { x: -180, y: 0, z: 0 };
 
 const initialBunnyPos = { x: 0, y: 0, z: 0 };
 const initialBunnyGridPos = { x: 0, y: 0, z: 0 };
@@ -87,9 +87,9 @@ let bunny;
 let bunnyGrid;
 let bunnyThrowBomb;
 
-let bear;
-let bearGrid;
-let bearThrowBomb;
+let wolf;
+let wolfGrid;
+let wolfThrowBomb;
 
 const trees = [];
 
@@ -271,7 +271,7 @@ const loop = () => {
   updateForestPositions();
 
   bunny.run(speed.current, maxSpeed, delta);
-  bear.run(speed.current, maxSpeed, delta);
+  wolf.run(speed.current, maxSpeed, delta);
 
   render();
   requestAnimationFrame(loop);
@@ -281,8 +281,8 @@ const render = () => {
   renderer.render(scene, camera);
 };
 
-// player = 'bunny'|'bear'
-const availableRunner = ['bunny', 'bear'];
+// player = 'bunny'|'wolf'
+const availableRunner = ['bunny', 'wolf'];
 
 const init = (runner) => {
   if (!availableRunner.includes(runner)) {
@@ -297,21 +297,21 @@ const init = (runner) => {
   bunny = createBunny(scene, initialBunnyPos);
   bunnyGrid = createGrid(scene, { x: 0, y: 0, z: 0 }, playerRunner === 'bunny');
 
-  bear = createBear(scene, initialBearPos);
-  bearGrid = createGrid(scene, { x: -180, y: 0, z: 0 }, playerRunner === 'bear');
+  wolf = createWolf(scene, initialWolfPos);
+  wolfGrid = createGrid(scene, { x: -180, y: 0, z: 0 }, playerRunner === 'wolf');
 
   let playerGrid;
   let opponentGrid;
 
   if (playerRunner === 'bunny') {
     playerGrid = bunnyGrid.grid.children;
-    opponentGrid = bearGrid.grid.children;
+    opponentGrid = wolfGrid.grid.children;
     bunnyThrowBomb = createThrowBomb(bunny.mesh.position);
-    bearThrowBomb = createThrowBomb(bear.mesh.position);
+    wolfThrowBomb = createThrowBomb(wolf.mesh.position);
   } else {
-    playerGrid = bearGrid.grid.children;
+    playerGrid = wolfGrid.grid.children;
     opponentGrid = bunnyGrid.grid.children;
-    bearThrowBomb = createThrowBomb(bear.mesh.position);
+    wolfThrowBomb = createThrowBomb(wolf.mesh.position);
     bunnyThrowBomb = createThrowBomb(bunny.mesh.position);
   }
 
@@ -330,8 +330,8 @@ const init = (runner) => {
 };
 
 const submitActionFactory = (runner) => (action, target) => {
-  const baseGridPosOpponent = runner === 'bunny' ? initialBearGridPos : bunnyGrid.grid.position;
-  const baseGridPosPlayer = runner === 'bunny' ? bunnyGrid.grid.position : initialBearGridPos;
+  const baseGridPosOpponent = runner === 'bunny' ? initialWolfGridPos : bunnyGrid.grid.position;
+  const baseGridPosPlayer = runner === 'bunny' ? bunnyGrid.grid.position : initialWolfGridPos;
 
   if (action === 'moveTo') {
     const coords = convertVectorToIndex(target, baseGridPosPlayer, 50);
@@ -362,19 +362,19 @@ const openActionSelection = () => {
   isActionsAllowed = true;
 
   bunnyGrid.grid.children.forEach((c) => c.unClick());
-  bearGrid.grid.children.forEach((c) => c.unClick());
+  wolfGrid.grid.children.forEach((c) => c.unClick());
 };
 
-const showActionResult = (bearMoveTo, bunnyMoveTo, bearThrowTo, bunnyThrowTo, cb) => {
-  const bearMoveToVector = convertIndexToVector(bearMoveTo, initialBearPos, 50);
+const showActionResult = (wolfMoveTo, bunnyMoveTo, wolfThrowTo, bunnyThrowTo, cb) => {
+  const wolfMoveToVector = convertIndexToVector(wolfMoveTo, initialWolfPos, 50);
   const bunnyMoveToVector = convertIndexToVector(bunnyMoveTo, bunnyGrid.grid.position, 50);
 
-  const bearThrowToVector = convertIndexToVector(bearThrowTo, bunnyGrid.grid.position, 50);
-  const bunnyThrowToVector = convertIndexToVector(bunnyThrowTo, initialBearGridPos, 50);
+  const wolfThrowToVector = convertIndexToVector(wolfThrowTo, bunnyGrid.grid.position, 50);
+  const bunnyThrowToVector = convertIndexToVector(bunnyThrowTo, initialWolfGridPos, 50);
 
-  bear.moveToPosition(bearMoveToVector.x, bearMoveToVector.z);
+  wolf.moveToPosition(wolfMoveToVector.x, wolfMoveToVector.z);
   bunny.moveToPosition(bunnyMoveToVector.x, bunnyMoveToVector.z, () => {
-    bearThrowBomb(bearThrowToVector);
+    wolfThrowBomb(wolfThrowToVector);
     bunnyThrowBomb(bunnyThrowToVector, cb);
   });
 };

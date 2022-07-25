@@ -3,7 +3,7 @@ const { gsap } = require('gsap');
 const { whiteMat, pinkMat, blackMat } = require('./materials');
 const { getVertices } = require('../gameHelpers/utils');
 
-const Bear = function () {
+const Wolf = function () {
   this.runningCycle = 0;
 
   this.mesh = new THREE.Group();
@@ -166,7 +166,7 @@ const Bear = function () {
   this.body.rotation.y = Math.PI / 2;
 };
 
-Bear.prototype.run = function (currentSpeed, maxSpeed, delta) {
+Wolf.prototype.run = function (currentSpeed, maxSpeed, delta) {
   const s = Math.min(currentSpeed, maxSpeed);
   this.runningCycle += delta * s * 0.7;
   this.runningCycle %= (Math.PI * 2);
@@ -200,7 +200,7 @@ Bear.prototype.run = function (currentSpeed, maxSpeed, delta) {
   this.eyeR.scale.y = 0.5 + Math.sin(t + Math.PI) * 0.5;
 };
 
-Bear.prototype.nod = function () {
+Wolf.prototype.nod = function () {
   const _this = this;
   const sp = 1 + Math.random() * 2;
 
@@ -225,7 +225,7 @@ Bear.prototype.nod = function () {
   });
 };
 
-Bear.prototype.sit = function () {
+Wolf.prototype.sit = function () {
   const sp = 1.2;
   const ease = 'power4.easeOut';
   const _this = this;
@@ -256,22 +256,22 @@ Bear.prototype.sit = function () {
   // gsap.to(this.body.rotation, sp, {y:Math.PI/4});
 };
 
-Bear.prototype.moveToPosition = function (x, z, cb = () => {}) {
+Wolf.prototype.moveToPosition = function (x, z, cb = () => {}) {
   gsap.to(this.mesh.position, { duration: 2, x, ease: 'power4.easeInOut' });
   gsap.to(this.mesh.position, {
     duration: 2, z, ease: 'power4.easeInOut', onComplete: cb,
   });
 };
 
-function createBear (scene, initialPosition) {
-  const bear = new Bear();
-  bear.mesh.position.z = 0;
-  bear.mesh.scale.set(1.2, 1.2, 1.2);
-  scene.add(bear.mesh);
-  bear.mesh.position.x = initialPosition.x;
-  bear.mesh.position.y = initialPosition.y;
-  bear.mesh.position.z = initialPosition.z;
-  return bear;
+function createWolf (scene, initialPosition) {
+  const wolf = new Wolf();
+  wolf.mesh.position.z = 0;
+  wolf.mesh.scale.set(1.2, 1.2, 1.2);
+  scene.add(wolf.mesh);
+  wolf.mesh.position.x = initialPosition.x;
+  wolf.mesh.position.y = initialPosition.y;
+  wolf.mesh.position.z = initialPosition.z;
+  return wolf;
 }
 
-module.exports = { createBear };
+module.exports = { createWolf };

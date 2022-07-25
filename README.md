@@ -11,7 +11,7 @@ Each player gets a turn to choose where to move their own character avatar in a 
 
 ## Front
 
-Three.js game of bear chasing bunny. Javascript with webpack packing, main libs used for animation:
+Three.js game of wolf chasing bunny. Javascript with webpack packing, main libs used for animation:
 - [Three.js](https://threejs.org/)
 - [gsap](https://greensock.com/gsap/)
 
@@ -34,5 +34,3 @@ and then
 ```yarn dev```
 
 ## Notes
-
-There are a bunch of "bear" mentions in the code, this is an old feature which never took fruition. Will be replaced to "wolf".

@@ -94,13 +94,13 @@ const initGameSocketListeners = () => {
         moveTo: bunnyMoveTo,
         throwTo: bunnyThrowTo,
       },
-      bear: {
-        moveTo: bearMoveTo,
-        throwTo: bearThrowTo,
+      wolf: {
+        moveTo: wolfMoveTo,
+        throwTo: wolfThrowTo,
       },
     } = allRunnerActions;
 
-    showActionResult(bearMoveTo, bunnyMoveTo, bearThrowTo, bunnyThrowTo, () => {
+    showActionResult(wolfMoveTo, bunnyMoveTo, wolfThrowTo, bunnyThrowTo, () => {
       setScore(score);
       setRunnerDistance(score);
       openActionSelection();
@@ -121,13 +121,13 @@ const initGameSocketListeners = () => {
         moveTo: bunnyMoveTo,
         throwTo: bunnyThrowTo,
       },
-      bear: {
-        moveTo: bearMoveTo,
-        throwTo: bearThrowTo,
+      wolf: {
+        moveTo: wolfMoveTo,
+        throwTo: wolfThrowTo,
       },
     } = allRunnerActions;
 
-    showActionResult(bearMoveTo, bunnyMoveTo, bearThrowTo, bunnyThrowTo, () => {
+    showActionResult(wolfMoveTo, bunnyMoveTo, wolfThrowTo, bunnyThrowTo, () => {
       setScore(score);
       setRunnerDistance(score);
       showGameOver(winner);
@@ -150,7 +150,7 @@ if (process.env.ANIMATE_ONLY) {
   window.addEventListener('load', () => {
     hideWaitingMessage();
     preloadModels().then(() => {
-      init('bunny');
+      init('wolf');
       showScore();
       openActionSelection();
     });
