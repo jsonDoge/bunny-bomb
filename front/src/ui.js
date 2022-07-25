@@ -50,7 +50,7 @@ const showScore = () => {
 };
 
 const setScore = (score) => {
-  let prefix = score < 0 ? 'bear' : 'bunny';
+  let prefix = score < 0 ? 'wolf' : 'bunny';
   prefix = score === 0 ? '' : prefix;
 
   document.getElementById('value').textContent = `${prefix} ${Math.abs(score)}`;
