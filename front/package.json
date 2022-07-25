@@ -6,8 +6,8 @@
   "author": "jsonDoge",
   "scripts": {
     "build": "webpack --config ./bundler/webpack.prod.js",
-    "dev": "webpack serve --config ./bundler/webpack.dev.js",
-    "dev:animation": "ANIMATE_ONLY=true webpack serve --config ./bundler/webpack.dev.js"
+    "dev": "webpack serve --env config=development --config ./bundler/webpack.dev.js",
+    "dev:animate": "webpack serve --env config=animate --config ./bundler/webpack.dev.js"
   },
   "dependencies": {
     "@babel/core": "^7.16.12",

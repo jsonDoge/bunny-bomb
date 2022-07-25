@@ -3,8 +3,8 @@ const { merge } = require('webpack-merge');
 const portFinderSync = require('portfinder-sync');
 const commonConfiguration = require('./webpack.common');
 
-module.exports = merge(
-  commonConfiguration,
+module.exports = (env) => merge(
+  commonConfiguration(env),
   {
     mode: 'development',
     devServer: {
