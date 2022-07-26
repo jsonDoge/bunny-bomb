@@ -7,7 +7,7 @@ Each player gets a turn to choose where to move their own character avatar in a 
 - Green plot - where to move your avatar.
 - Red plot - which plot to bomb.
 
-![image](https://user-images.githubusercontent.com/16711523/180389330-d93f9041-c529-46fb-a8ed-9baa13eb6f0a.png)
+![image](https://user-images.githubusercontent.com/16711523/180981898-26547284-d9f1-4356-a2d1-aa926d23c061.png)
 
 ## Front
 
@@ -23,7 +23,7 @@ Backend to provide multiple player capabilities for chasing game. Currently a ve
 
 ## Run
 
-Check each subfolder README.md files for any specifics. Each one has an .env.example which can be renamed to .env for immediate start.
+Check each subfolder README.md files for any specifics.
 
 To run locally you'll need to start them separately by running
 
